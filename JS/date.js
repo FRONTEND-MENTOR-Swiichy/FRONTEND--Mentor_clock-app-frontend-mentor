@@ -1,3 +1,9 @@
+// definition
+var $ = require('jquery')(require("jsdom").jsdom().parentWindow);
+
+// usage
+$("body").append("<div>TEST</div>");
+console.log($("body").html());
 
 //Call of the API https://freegeoip.app/json/ to dynamically display the living area
 
@@ -73,5 +79,4 @@ function getworldtimeapiAPI() {
 }
 
 getworldtimeapiAPI();
-
 

@@ -6,6 +6,8 @@ function showContent() {
     const quoteDiv = document.querySelector('.content-quote-gen');
     const contentInformation = document.querySelector('.content-information');
     const slideInformation = document.querySelector('.slide-information');
+    const contentInformationTrans = document.querySelector('.content-informationTrans');
+    const getContainer = document.querySelector('.container');
 
     //TOGGLE METHOD
     element.classList.toggle("rotate");
@@ -17,5 +19,5 @@ function showContent() {
         text.innerHTML = "Less";
     } else {
         text.innerHTML = "More";
-    }
+    } 
 }

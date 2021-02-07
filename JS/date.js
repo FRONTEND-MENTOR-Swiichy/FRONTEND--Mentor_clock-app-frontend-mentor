@@ -1,29 +1,16 @@
 
-//Call of the API https://freegeoip.app/json/ to dynamically display the living area
+getLoca = document.getElementById('localisation');
 
-let callBackGetSuccess = function(data) {
-    console.log("donnees api", data);
-    getLoca = document.getElementById('localisation');
-    //console.log(data);
-    getLoca.innerHTML = "in" + " " + data.country_name+","+ " " + data.country_code;
-}
-
-function getfreegeoipAPI() {
-    let url = "https://freegeoip.app/json/";
-
-    $.get(url, callBackGetSuccess).done(function() {
-        //alert( "second success" );
-    })
-    .fail(function() {
-        alert( "error" );
-    })
-    .always(function() {
-        //alert( "finished" );
+fetch('https://freegeoip.app/json/')
+    .then(res => {
+        if(res.ok){
+            res.json().then(data => {
+                getLoca.innerHTML = "in" + " " + data.country_name+","+ " " + data.country_code;
+            })
+        } else {
+            console.log("ERROR");
+        }
     });
-}
-
-getfreegeoipAPI();
-
 
 let getcurrentZone = document.querySelector('.currentZone'),
     getDoty = document.querySelector('.doty'),
@@ -35,6 +22,7 @@ let getcurrentZone = document.querySelector('.currentZone'),
     getDotwId = document.getElementById('dotw'),
     getWkId = document.getElementById('wk');
 
+    
 fetch('http://worldtimeapi.org/api/ip')
     .then(res => {
         if(res.ok){

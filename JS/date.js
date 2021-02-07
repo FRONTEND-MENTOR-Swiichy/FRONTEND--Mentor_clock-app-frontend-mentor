@@ -22,7 +22,7 @@ let getcurrentZone = document.querySelector('.currentZone'),
     getDotwId = document.getElementById('dotw'),
     getWkId = document.getElementById('wk');
 
-    
+
 fetch('http://worldtimeapi.org/api/ip')
     .then(res => {
         if(res.ok){
@@ -37,9 +37,18 @@ fetch('http://worldtimeapi.org/api/ip')
                 getDoty.innerHTML = data.day_of_year;
                 getDotw.innerHTML = data.day_of_week;
                 getWk.innerHTML = data.week_number;
+
+                if(getDotwId.innerHTML == "0") {
+                    getDotwId.innerHTML = "7";
+                }
+                if(getDotw.innerHTML == "0") {
+                    getDotw.innerHTML = "7";
+                }
             })
         } else{
             console.log("ERROR");
         }
     });
+
+    
 

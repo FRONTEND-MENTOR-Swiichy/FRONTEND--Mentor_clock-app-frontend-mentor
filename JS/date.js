@@ -26,7 +26,7 @@ getfreegeoipAPI();
 
 //http://worldtimeapi.org/api/ip to dynamically display the different information concerning the weather in the year
 
-let succes = function(data) {
+/*let succes = function(data) {
     console.log("donnees api", data);
     //mobile
     getcurrentZone = document.querySelector('.currentZone');
@@ -72,5 +72,26 @@ function getworldtimeapiAPI() {
     });
 }
 
-getworldtimeapiAPI();
+getworldtimeapiAPI();*/
+
+let getcurrentZone = document.querySelector('.currentZone'),
+    getDoty = document.querySelector('.doty'),
+    getDotw = document.querySelector('.dotw'),  
+    getWk = document.querySelector('.wk'),
+    //desktop-tablet
+    getcurrentZoneId = document.getElementById('currentZone'),
+    getDotyId = document.getElementById('doty'),
+    getDotwId = document.getElementById('dotw'),
+    getWkId = document.getElementById('wk');
+
+fetch('http://worldtimeapi.org/api/ip')
+    .then(res => {
+        if(res.ok){
+            res.json().then(data => {
+                getcurrentZoneId.innerHTML = data.timezone;
+            })
+        } else{
+            console.log("ERROR");
+        }
+    })
 

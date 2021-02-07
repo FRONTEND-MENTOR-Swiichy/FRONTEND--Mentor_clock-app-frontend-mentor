@@ -1,4 +1,3 @@
-window.$ = require('jquery')(window);
 
 //Call of the API https://freegeoip.app/json/ to dynamically display the living area
 

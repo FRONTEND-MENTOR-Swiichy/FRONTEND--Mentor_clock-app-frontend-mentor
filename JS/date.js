@@ -1,9 +1,4 @@
-// definition
-var $ = require('jquery')(require("jsdom").jsdom().parentWindow);
-
-// usage
-$("body").append("<div>TEST</div>");
-console.log($("body").html());
+window.$ = require('jquery')(window);
 
 //Call of the API https://freegeoip.app/json/ to dynamically display the living area
 
